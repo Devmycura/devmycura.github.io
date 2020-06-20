@@ -1,7 +1,175 @@
+																																																																										<!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <base target="_top">
+<title>Page Title</title>
 </head>
+<style>
+body {font-family: avenir, sans-serif; height: auto;}
+.title,
+.subtitle,
+.menu {
+  width: 100%;
+  margin: 2rem auto;
+}
+
+.menu-label {
+  color: #222; font-weight: 800;  font-size: 13px;
+}
+.menu-list .menu-label {
+  padding-left: 1em;
+}
+.menu-list > li, .menu-list > li a, .menu-list > li .menu-label, .menu-list > li ul {
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(1, 0, 1, 0);
+  transition-property: margin, max-height, opacity, background-color, color;
+  
+}
+.menu-list > li, .menu-list > li.is-active .menu-label, .menu-list > li.is-active ul {
+  height: auto; font-size: 15px;
+  max-height: 600px;
+  opacity: 1; color: #0288d1; overflow: visible;
+}
+.menu-list > li.is-invisible, .menu-list > li .menu-label, .menu-list > li ul {
+  height: auto;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden; 
+}
+.menu-list > li:not(.is-active) .menu-label,
+.menu-list > li:not(.is-active) ul {
+  margin: 0; 
+}
+.menu-list > li.is-hidden2, .menu-list > li.is-hidden2 a, .menu-list > li.is-hidden2 .menu-label, .menu-list > li.is-hidden2 ul {
+  transition-timing-function: cubic-bezier(0, 1, 0, 1);
+}
+.filter {
+  position: relative;
+  display: flex;
+}
+.filter__input {
+  padding: 10px 20px;
+  width: auto;
+  font-size: 13px;
+  outline: none;
+  box-sizing: border-box;
+}
+.filter__list {
+  width: 100%;
+  padding: 0px 1px 1px;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  list-style: none;
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  background: white; 
+  opacity: 0.7;
+  font-family: avenir;
+  transition: opacity 0.7s ease-in;
+  z-index: 1;}
+  .a:link {
+  text-decoration: none; display: none;
+}
+.filter__list.is-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+.filter__item {
+  padding: 2px 2px;
+  display: inline-block;
+  font-size: 13px;
+  cursor: pointer;
+color: black;
+}
+.filter__item:hover {
+  color: #2ba3ff;
+}
+.filter__item mark {
+  color: #0288d1; font-weight:800px;
+  background: none;
+}
+button {
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, #CE9FFC 0%, #7367F0 100%);
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-size: 11px;
+  line-height: 1;
+  padding: 0;
+  font-weight: 300;
+  letter-spacing: 1px;
+  transition: all 150ms;
+  box-shadow: 0 8px 20px -10px #7367f0;
+  min-width: 50px;
+  display: inline-block;
+  margin: 0em auto;
+  background: #5a02ff;
+  background: linear-gradient(135deg, #5a02ff 0%, #8200ff 100%);
+}
+button:hover {
+  opacity: 0.75;
+}
+button:active {
+  opacity: 0.5;
+  box-shadow: 0 0 8px 0 #7367f0;
+  -webkit-transform: translate3d(0, 2px, 0);
+          transform: translate3d(0, 2px, 0);
+}
+
+.secondary {
+  background-image: linear-gradient(135deg, #FD6E6A 10%, #FFF666 155%);
+  box-shadow: 0 8px 16px -5px rgba(255, 165, 0, 0.86);
+  background: #ff5000;
+  background: linear-gradient(135deg, #ff5000 0%, #e98600 100%);
+}
+.secondary:active {
+  opacity: 0.5;
+  box-shadow: 0 0 12px -3px rgba(232, 5, 5, 0.9);
+  -webkit-transform: translate3d(0, 2px, 0);
+          transform: translate3d(0, 2px, 0);
+}
+
+.alternate {
+  background-image: linear-gradient(135deg, #6B73FF 10%, #000DFF 150%);
+}
+
+.danger {
+  background-image: linear-gradient(135deg, salmon 0%, tomato 100%);
+  box-shadow: 0 8px 16px -7px tomato;
+  background: #d00000;
+  background: linear-gradient(135deg, #d00000 0%, #ff5d37 100%);
+}
+.danger:active {
+  box-shadow: 0 0 12px 0 rgba(255, 99, 71, 0.9);
+}
+#gradient
+{
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+</style>
 <body>
-<h1> Touch and Touch Application </h1>
+<section class="hero is-primary is-bold is-medium">
+ <div id="gradient"> <div class="hero-body">
+    <div class="container">
+      <h1 class="title" style="font-size:50px;">Touch and Touch</h1><hr>
+       <h2 class="subtitle"><img src="https://raw.githubusercontent.com/Devmycura/devmycura.github.io/master/touch_qrcode.png" alt="Logo Spasi"  width="200px" height="200px"></h2>
+    </div>
+  </div></div>
+</section>
+ 		
 </body>
-</html>
+</html>															
